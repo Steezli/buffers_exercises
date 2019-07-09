@@ -12,7 +12,14 @@ describe('buffer', () => {
     expect(buf).toHaveLength(12);
     expect(buf.toString()).toEqual('its a string');
 
-    const hBuf = buf.map(() => 105);
-    expect(hBuf.toString()).toEqual('iiiiiiiiiiii');
+    const iBuf = buf.map(() => 105);
+    expect(iBuf.toString()).toEqual('iiiiiiiiiiii');
+  });
+
+  it('creates a buffer from a string', () => {
+    const smile = Buffer.from([0xF0, 0x9F, 0x98, 0x81]);
+    
+    expect(smile).toHaveLength(4);
+    expect(smile.toString()).toEqual('😁');
   });
 });
